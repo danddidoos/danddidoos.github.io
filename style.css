@@ -1,9 +1,9 @@
 body {
   font-family: poppins, arial, sans-serif;
+  margin: 0px;
 }
 body h3 {
   font-family: "Courier New";
-  margin: 0px;
 }
 h1 {
   background-color: red;
