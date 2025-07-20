@@ -2,11 +2,11 @@ body {
   font-family: poppins, arial, sans-serif;
 }
 body h3 {
-  font-family: "Courier New"
+  font-family: "Courier New";
+  margin: 0px;
 }
 h1 {
   background-color: red;
   text-align: center;
-  margin-bottom: 5px;
-  margin: 0px;
+  margin: 0px 0px 5px 0px;
 }
