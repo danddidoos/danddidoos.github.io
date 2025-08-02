@@ -31,3 +31,7 @@ h1 {
 .navbar li{
   float:left;
 }
+div p{
+  background-color: #40403b;
+}
+
