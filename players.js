@@ -1,5 +1,74 @@
+query {
+  player(id: 59b11a53) {
+    id
+    gamerTag
+    user {
+      id
+      username
+    }
+    sets(perPage: 5) {
+      nodes {
+        id
+        displayScore
+        event {
+          id
+          name
+          tournament {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+}
+const fetchPlayerData = async (playerId) => {
+  const response = await fetch('https://api.start.gg/gql/alpha', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer edb4cde66f5304afce211a16a2f021e0',
+    },
+    body: JSON.stringify({
+      query: `
+        query {
+          player(id: ${playerId}) {
+            id
+            gamerTag
+            user {
+              id
+              username
+            }
+            sets(perPage: 5) {
+              nodes {
+                id
+                displayScore
+                event {
+                  id
+                  name
+                  tournament {
+                    id
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+    }),
+  });
+
+  const data = await response.json();
+  return data.data.player;
+};
+console.log(data);
+
 const players = [
-  "Command",
+  {
+  name: "Command",
+  stats: {
+    
   "JBell",
   "RebelGalaxy",
   "Sol",
