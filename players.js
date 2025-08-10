@@ -1,28 +1,4 @@
-query {
-  player(id: 59b11a53) {
-    id
-    gamerTag
-    user {
-      id
-      username
-    }
-    sets(perPage: 5) {
-      nodes {
-        id
-        displayScore
-        event {
-          id
-          name
-          tournament {
-            id
-            name
-          }
-        }
-      }
-    }
-  }
-}
-const fetchPlayerData = async (playerId) => {
+const fetchPlayerData = async ("59b11a53") => {
   const response = await fetch('https://api.start.gg/gql/alpha', {
     method: 'POST',
     headers: {
@@ -32,7 +8,7 @@ const fetchPlayerData = async (playerId) => {
     body: JSON.stringify({
       query: `
         query {
-          player(id: ${playerId}) {
+          player(id: ${"59b11a53"}) {
             id
             gamerTag
             user {
