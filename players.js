@@ -36,10 +36,23 @@ const fetchPlayerData = async (playerId) => {
   });
 
   const data = await response.json();
-  return data.data.player;
+console.log('Full response:', data);
+
+  if (data.errors) {
+
+    console.error('GraphQL errors:', data.errors);
+    return null;
+  }
+
+  return data.data?.player || null;
 };
-    fetchPlayerData("59b11a53").then(playerData => {
-  console.log(playerData);
+
+fetchPlayerData("59b11a53").then(playerData => {
+  if (playerData) {
+    console.log('Player data:', playerData);
+  } else {
+    console.log('No player data found.');
+  }
 });
 const players = [
   "Command",
