@@ -66,6 +66,11 @@ margin: 0 auto;
 }
 }
 
+.large {
+  max-width: 100%;
+  height: auto;
+}
+
 @media (min-width: 768px) {
   .float-right {
     float: right;
