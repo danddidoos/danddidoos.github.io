@@ -1,4 +1,4 @@
-const fetchPlayerData = async ("59b11a53") => {
+const fetchPlayerData = async (playerId) => {
   const response = await fetch('https://api.start.gg/gql/alpha', {
     method: 'POST',
     headers: {
@@ -8,7 +8,7 @@ const fetchPlayerData = async ("59b11a53") => {
     body: JSON.stringify({
       query: `
         query {
-          player(id: ${"59b11a53"}) {
+          player(id: "${playerId}") {
             id
             gamerTag
             user {
@@ -38,13 +38,11 @@ const fetchPlayerData = async ("59b11a53") => {
   const data = await response.json();
   return data.data.player;
 };
-console.log(data);
-
+    fetchPlayerData("59b11a53").then(playerData => {
+  console.log(playerData);
+});
 const players = [
-  {
-  name: "Command",
-  stats: {
-    
+  "Command",
   "JBell",
   "RebelGalaxy",
   "Sol",
